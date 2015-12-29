@@ -5,10 +5,10 @@ import spray.testkit.Specs2RouteTest
 import spray.http._
 import StatusCodes._
 
-class MyServiceSpec extends Specification with Specs2RouteTest with MyService {
+class FaaServiceSpec extends Specification with Specs2RouteTest with FaaService {
   def actorRefFactory = system
   
-  "MyService" should {
+  "FaaService" should {
 
     "return a greeting for GET requests to the root path" in {
       Get() ~> myRoute ~> check {

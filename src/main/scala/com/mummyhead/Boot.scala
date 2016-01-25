@@ -1,16 +1,25 @@
 package com.mummyhead
 
 import akka.actor.{ActorSystem, Props}
+import akka.event.Logging
 import akka.io.IO
-import spray.can.Http
 import akka.pattern.ask
 import akka.util.Timeout
+import com.mummyhead.httpservice.FaaServiceActor
+import com.mummyhead.loader.FaaDataLoader
+import spray.can.Http
+
 import scala.concurrent.duration._
 
 object Boot extends App {
 
   // we need an ActorSystem to host our application in
   implicit val system = ActorSystem("on-spray-can")
+
+  val log = Logging(system, getClass)
+  log.info("Faa Service app is starting!!!")
+
+  log.info("Loading FAA data")
 
   // create and start our service actor
   val service = system.actorOf(Props[FaaServiceActor], "faa-service")

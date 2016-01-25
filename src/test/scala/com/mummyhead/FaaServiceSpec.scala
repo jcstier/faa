@@ -11,7 +11,7 @@ class FaaServiceSpec extends Specification with Specs2RouteTest with FaaService 
   
   "FaaService" should {
 
-    "return a greeting for GET requests to the root path" in {
+    /*"return a greeting for GET requests to the root path" in {
       Get() ~> myRoute ~> check {
         responseAs[String] must contain("Say hello")
       }
@@ -28,6 +28,6 @@ class FaaServiceSpec extends Specification with Specs2RouteTest with FaaService 
         status === MethodNotAllowed
         responseAs[String] === "HTTP method not allowed, supported methods: GET"
       }
-    }
+    }*/
   }
 }

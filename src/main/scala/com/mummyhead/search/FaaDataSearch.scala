@@ -10,15 +10,15 @@ import scala.collection.mutable.Map
   */
 class FaaDataSearch {
 
-  def bruteForce(searchTerm: String, data: Map[String, FaaModel]): mutable.MutableList[FaaModel] = {
+  def bruteForce(searchTerm: String, data: Map[String, FaaModel]):List[FaaModel] = {
     val results = mutable.MutableList[FaaModel]()
 
     data.foreach {keyVal => {
-      if(keyVal._2.name.contains(searchTerm)){
+      if(keyVal._2.name.contains(searchTerm.toUpperCase) || keyVal._2.airportCode.contains(searchTerm.toUpperCase)){
         results += keyVal._2
       }
     }}
-    results
+    results.toList;
   }
 
 }
